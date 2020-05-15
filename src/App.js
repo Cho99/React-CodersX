@@ -1,19 +1,14 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import './Header.css';
-import './LoginForm.css';
-import Header from './components/Header';
-import LoginForm from './components/LoginForm';
+import './TabMenu.css';
+import TabMenu from './components/TabMenu';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="container">
-           <Header/>
-           <LoginForm/>
-        </div> 
+       <TabMenu/>
       </div>
     );
   }
