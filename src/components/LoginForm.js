@@ -6,13 +6,17 @@ class LoginForm extends Component {
       <div className="LoginForm">
         <h1>Sign in</h1>
         <div className="formLogin">
+          <div className="form-user" >
+            <label for="email">Email</label>
+            <input id="email" value={this.props.email}></input>
+          </div>
           <div className="form-user">
-            <label>Username</label>
-            <input></input>
+            <label for="username">Username</label>
+            <input id="username"></input>
           </div>
           <div className="form-password">
-            <label>Password</label>
-            <input type="password"></input>
+            <label for="password">Password</label>
+            <input type="password" id="password"></input>
           </div>
           <button>Signin to Coders-x</button>
           <div className="keep-signed">

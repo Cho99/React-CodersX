@@ -12,7 +12,7 @@ class App extends Component {
       <div className="App">
         <div className="container">
            <Header/>
-           <LoginForm/>
+           <LoginForm email="abc@gmail.com"/>
         </div> 
       </div>
     );
