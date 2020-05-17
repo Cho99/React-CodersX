@@ -39,3 +39,7 @@ input:focus {
 .isFocused {
   background-color: #4A36EB;
 }
+
+.limitWord {
+  border-color: #F00;
+}
