@@ -1,42 +1,47 @@
 import React, { Component } from "react";
+import logo from "./logo.svg";
 import "./App.css";
-import SearchBox from "./components/searchBox";
+import Modal from "./components/Modal";
+
+var classNames = require("classnames");
 
 class App extends Component {
   constructor() {
     super();
-    this.state = { isFocused: false, phonePass: false };
-    this.focus();
+    this.state = {
+      active: false
+    };
+    this.onModalClick = this.onModalClick.bind(this);
+    this.onExitClick = this.onExitClick.bind(this);
   }
-  focus() {
-    document.addEventListener("DOMContentLoaded", () => {
-      const el = document.getElementById("searchBox");
-      el.addEventListener("focus", event => {
-        this.setState({ isFocused: true });
-      });
-      el.addEventListener("blur", event => {
-        this.setState({ isFocused: false });
-      });
-      
-      el.addEventListener("keyup", event => {
-        let value = el.value;
-        let number = value.split("");
-        let headPhone = number.slice(0,3).join("");
-  
-        if(value.length == 10 && headPhone == "090") {
-          this.setState({phonePass: true});
-        } else {
-           this.setState({phonePass: false});
-        }
-      });
-    });
+
+  onModalClick() {
+    this.setState({ active: true });
   }
+
+  onExitClick() {
+    this.setState({ active: false });
+  }
+
   render() {
-    const { isFocused } = this.state;
-    const { phonePass } = this.state;
+    const { active } = this.state;
     return (
       <div className="App">
-        <SearchBox isFocused={isFocused} phonePass={phonePass} />
+        <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <p>
+            <button onClick={this.onModalClick}>Open modal</button>
+          </p>
+          <a
+            className="App-link"
+            href="https://coders-x.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Yêu anh Thịnh
+          </a>
+        </header>
+        <Modal active={active} onExitClick={this.onExitClick} />
       </div>
     );
   }

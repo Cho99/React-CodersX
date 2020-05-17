@@ -1,45 +1,86 @@
-* {
-  box-sizing: border-box;
+.App {
+  position: relative;
 }
-.SearchBox {
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  height: 100vh;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.Modal {
+  position: absolute;
+  z-index: 999;
+  background: white;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 744px;
+  padding: 50px;
+  opacity: 0;
+  visibility: hidden;
+   transition: 0.5s;
+}
+
+.active {
+  opacity: 1;
+  visibility: visible;
+  transition: 1s;
 }
 
 .container {
+  position: relative;
+}
+
+.exit {
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+}
+
+.button {
   display: flex;
-  width: 421px;
-  border: 1px solid rgba(124, 146, 205, 0.7);
-  border-radius: 50px;
-  box-sizing: border-box;
+  justify-content: flex-end;
+  margin: 20px;
 }
 
-.container input {
-  width: 100%;
+.button button {
+  margin: 10px;
+  width: 15%;
+  height: 35px;
+  color: #ffff;
   border: none;
-  border-radius: 50px;
-  padding: 10px;
-  font-size: 18px;
+  cursor: pointer;
 }
 
-
-img {
-  padding: 5px;
-  margin: 8px;
-  background-color: #333;
-  border-radius: 50px;
+.button .accept {
+  background-color: #28A745;
 }
 
-input:focus {
-  outline: none;
-}
-
-.isFocused {
-  background-color: #4A36EB;
-}
-
-.phonePass {
-  border-color: #F00;
+.button .decline {
+  background-color: #D63447;
 }
