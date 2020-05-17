@@ -5,7 +5,7 @@ import SearchBox from "./components/searchBox";
 class App extends Component {
   constructor() {
     super();
-    this.state = { isFocused: false, limitWord: false };
+    this.state = { isFocused: false, phonePass: false };
     this.focus();
   }
   focus() {
@@ -17,22 +17,26 @@ class App extends Component {
       el.addEventListener("blur", event => {
         this.setState({ isFocused: false });
       });
+      
       el.addEventListener("keyup", event => {
         let value = el.value;
-        if (value.length > 10) {
-          this.setState({ limitWord: true });
+        let number = value.split("");
+        let headPhone = number.slice(0,3).join("");
+  
+        if(value.length == 10 && headPhone == "090") {
+          this.setState({phonePass: true});
         } else {
-          this.setState({ limitWord: false });
+           this.setState({phonePass: false});
         }
       });
     });
   }
   render() {
     const { isFocused } = this.state;
-    const { limitWord } = this.state;
+    const { phonePass } = this.state;
     return (
       <div className="App">
-        <SearchBox isFocused={isFocused} limitWord={limitWord} />
+        <SearchBox isFocused={isFocused} phonePass={phonePass} />
       </div>
     );
   }
