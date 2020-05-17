@@ -1,21 +1,41 @@
-.Ntification {
+* {
+  box-sizing: border-box;
+}
+.SearchBox {
   display: flex;
   justify-content: center;
-  height: 100vh;
   align-items: center;
+  height: 100vh;
 }
+
 .container {
-  position: relative;
+  display: flex;
+  width: 421px;
+  border: 1px solid rgba(124, 146, 205, 0.7);
+  border-radius: 50px;
+  box-sizing: border-box;
+}
+
+.container input {
+  width: 100%;
+  border: none;
+  border-radius: 50px;
+  padding: 10px;
+  font-size: 18px;
 }
 
 
-.red {
-  background-color: red;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  position: absolute;
-  top: 0;
-  right: -4px;
+img {
+  padding: 5px;
+  margin: 8px;
+  background-color: #333;
+  border-radius: 50px;
 }
 
+input:focus {
+  outline: none;
+}
+
+.isFocused {
+  background-color: #4A36EB;
+}
